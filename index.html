@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAMADA³ · Loja de Impressão 3D</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D0B14'/%3E%3Crect x='7' y='19' width='18' height='4' rx='2' fill='%234C1D95'/%3E%3Crect x='9' y='13' width='14' height='4' rx='2' fill='%238B5CF6'/%3E%3Crect x='11' y='7' width='10' height='4' rx='2' fill='%23C084FC'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D0B14;
+    --surface:#171320;
+    --surface-2:#1F1A2C;
+    --surface-3:#241E33;
+    --border:#2C2438;
+    --primary:#7C3AED;
+    --primary-hover:#8B5CF6;
+    --primary-dark:#5B21B6;
+    --accent:#C084FC;
+    --accent-2:#A855F7;
+    --text:#F5F3FA;
+    --text-muted:#A79FBF;
+    --text-faint:#6E6584;
+    --success:#34D399;
+    --white:#ffffff;
+    --radius-sm:8px;
+    --radius-md:14px;
+    --radius-lg:22px;
+    --font-display:'Space Grotesk',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --font-mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;}
+  ul{list-style:none;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+  img,svg{display:block;}
+  .container{width:100%;max-width:1240px;margin:0 auto;padding:0 24px;}
+  .section{padding:76px 0;}
+  .section-head{text-align:center;margin-bottom:40px;}
+  .section-head .eyebrow{
+    font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;color:var(--accent);
+    text-transform:uppercase;margin-bottom:10px;display:block;
+  }
+  .section-head h2{font-family:var(--font-display);font-size:32px;font-weight:700;}
+  .section-head p{color:var(--text-muted);margin-top:10px;font-size:15px;}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:12px 22px;border-radius:var(--radius-sm);font-weight:700;font-size:14.5px;
+    border:none;cursor:pointer;transition:transform .12s ease,filter .15s ease,background .15s ease,border-color .15s ease;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent-2));color:var(--white);box-shadow:0 14px 30px -12px rgba(124,58,237,.6);}
+  .btn-primary:hover{filter:brightness(1.08);}
+  .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border);}
+  .btn-ghost:hover{border-color:var(--accent-2);color:var(--accent);}
+  .btn-sm{padding:9px 14px;font-size:13px;border-radius:7px;}
+
+  /* ---------- Logo ---------- */
+  .logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .logo-mark{width:24px;height:24px;display:flex;flex-direction:column;justify-content:center;gap:3px;}
+  .logo-mark span{height:4px;border-radius:2px;display:block;}
+  .logo-mark span:nth-child(1){width:100%;background:var(--primary-dark);}
+  .logo-mark span:nth-child(2){width:72%;margin-left:auto;background:var(--primary);}
+  .logo-mark span:nth-child(3){width:88%;background:var(--accent);box-shadow:0 0 8px rgba(192,132,252,.75);}
+  .logo-word{font-family:var(--font-display);font-weight:700;font-size:19px;}
+  .logo-word sup{color:var(--accent);font-size:11px;top:-.6em;}
+
+  /* ---------- Utility bar ---------- */
+  .utility-bar{background:var(--primary-dark);color:#fff;font-size:12.5px;text-align:center;padding:8px 0;letter-spacing:.02em;}
+  .utility-bar strong{font-weight:700;}
+
+  /* ---------- Header ---------- */
+  header.main-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,11,20,.9);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .header-row{display:flex;align-items:center;gap:24px;padding:16px 0;}
+  .search-form{
+    flex:1;max-width:520px;display:flex;align-items:center;
+    background:var(--surface-2);border:1.5px solid var(--border);border-radius:10px;
+    padding:0 6px 0 14px;transition:border-color .15s ease;
+  }
+  .search-form:focus-within{border-color:var(--primary);}
+  .search-form input{
+    flex:1;background:none;border:none;color:var(--text);font-size:14px;padding:11px 8px;font-family:var(--font-body);
+  }
+  .search-form input::placeholder{color:var(--text-faint);}
+  .search-form button{background:none;border:none;color:var(--text-muted);cursor:pointer;padding:8px;display:flex;}
+  .search-form button:hover{color:var(--accent);}
+
+  nav.main-nav{display:flex;align-items:center;gap:26px;}
+  nav.main-nav a{font-size:14px;font-weight:600;color:var(--text-muted);transition:color .15s ease;white-space:nowrap;}
+  nav.main-nav a:hover{color:var(--accent);}
+
+  .header-actions{display:flex;align-items:center;gap:18px;flex-shrink:0;}
+  .icon-link{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--text-muted);position:relative;}
+  .icon-link:hover{color:var(--accent);}
+  .cart-badge{
+    position:absolute;top:-8px;right:-10px;background:var(--accent-2);color:#1a0b2e;font-size:10px;font-weight:700;
+    border-radius:50%;width:17px;height:17px;display:flex;align-items:center;justify-content:center;
+  }
+  .hamburger{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:6px;}
+
+  .category-row{border-bottom:1px solid var(--border);}
+  .category-scroll{display:flex;gap:10px;padding:14px 0;overflow-x:auto;scrollbar-width:none;}
+  .category-scroll::-webkit-scrollbar{display:none;}
+  .pill{
+    flex-shrink:0;display:flex;align-items:center;gap:7px;padding:8px 15px;border-radius:999px;
+    background:var(--surface);border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--text-muted);
+    transition:border-color .15s ease,color .15s ease;
+  }
+  .pill:hover{border-color:var(--accent-2);color:var(--accent);}
+  .pill svg{width:15px;height:15px;flex-shrink:0;}
+
+  @media (max-width:900px){
+    .search-form{display:none;}
+    nav.main-nav{position:absolute;top:100%;left:0;width:100%;max-height:0;background:var(--surface);border-top:1px solid var(--border);
+      flex-direction:column;align-items:stretch;gap:0;overflow:hidden;
+      transition:max-height .3s ease;z-index:60;}
+    nav.main-nav a{width:100%;padding:15px 24px;border-bottom:1px solid var(--border);}
+    nav.main-nav.open{max-height:320px;overflow-y:auto;}
+    .hamburger{display:flex;}
+    .icon-link span.label{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:70px 0 60px;
+    background:
+      repeating-linear-gradient(180deg,rgba(124,58,237,.05) 0px,rgba(124,58,237,.05) 1px,transparent 1px,transparent 26px),
+      radial-gradient(circle at 85% 10%,rgba(168,85,247,.18),transparent 55%);
+    border-bottom:1px solid var(--border);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+  .hero .eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;
+    display:flex;align-items:center;gap:8px;margin-bottom:18px;}
+  .hero .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);}
+  .hero h1{font-family:var(--font-display);font-size:46px;font-weight:700;line-height:1.12;margin-bottom:18px;max-width:560px;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero p.lede{color:var(--text-muted);font-size:16.5px;max-width:480px;margin-bottom:30px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+
+  .status-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:22px;box-shadow:0 30px 70px -30px rgba(0,0,0,.7);
+  }
+  .status-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+  .status-head .dot-label{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11.5px;color:var(--success);text-transform:uppercase;letter-spacing:.06em;}
+  .status-head .dot{width:8px;height:8px;border-radius:50%;background:var(--success);box-shadow:0 0 8px var(--success);animation:blink 1.6s ease-in-out infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.35;}}
+  .status-head .machine{font-family:var(--font-mono);font-size:11.5px;color:var(--text-faint);}
+  .status-part{font-family:var(--font-display);font-size:18px;font-weight:600;margin-bottom:14px;min-height:24px;}
+  .progress-track{height:8px;border-radius:6px;background:var(--surface-2);overflow:hidden;margin-bottom:10px;}
+  .progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--primary-dark),var(--accent));width:0%;transition:width .2s linear;}
+  .status-meta{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:12px;color:var(--text-muted);}
+  .status-meta strong{color:var(--text);}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:34px;}
+  }
+
+  /* ---------- Carousel ---------- */
+  .carousel-wrap{position:relative;}
+  .carousel-track{
+    display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 6px 20px;scrollbar-width:none;
+  }
+  .carousel-track::-webkit-scrollbar{display:none;}
+  .carousel-arrow{
+    position:absolute;top:42%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;
+    background:var(--surface);border:1.5px solid var(--accent-2);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;transition:background .15s ease;
+  }
+  .carousel-arrow:hover{background:var(--surface-3);}
+  .carousel-arrow.prev{left:-22px;}
+  .carousel-arrow.next{right:-22px;}
+  @media (max-width:700px){.carousel-arrow{display:none;}}
+
+  .product-card{
+    flex-shrink:0;width:260px;scroll-snap-align:start;
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;
+    display:flex;flex-direction:column;transition:border-color .15s ease,transform .15s ease;
+  }
+  .product-card:hover{border-color:var(--accent-2);transform:translateY(-3px);}
+  .product-media{
+    position:relative;height:180px;background:radial-gradient(circle at 30% 20%,rgba(124,58,237,.22),transparent 60%),var(--surface-2);
+    display:flex;align-items:center;justify-content:center;padding:20px;
+  }
+  .product-media svg{width:100%;height:100%;}
+  .media-badge{
+    position:absolute;top:12px;right:12px;background:var(--surface-3);border:1px solid var(--border);
+    color:var(--accent);font-family:var(--font-mono);font-size:10.5px;padding:4px 9px;border-radius:999px;letter-spacing:.03em;
+  }
+  .product-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:4px;flex:1;}
+  .product-brand{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;color:var(--text-faint);text-transform:uppercase;}
+  .product-name{font-size:14.5px;font-weight:600;line-height:1.35;margin-bottom:6px;min-height:38px;}
+  .price{font-family:var(--font-mono);font-size:19px;font-weight:600;color:var(--text);}
+  .price-pix{font-family:var(--font-mono);font-size:12.5px;color:var(--text-muted);margin-top:2px;}
+  .price-pix .tag{color:var(--success);font-weight:600;}
+  .installment{font-size:12px;color:var(--text-faint);margin-top:3px;margin-bottom:12px;}
+  .installment strong{color:var(--text-muted);font-weight:600;}
+  .add-btn{
+    margin-top:auto;width:100%;padding:10px;border-radius:8px;background:var(--surface-2);border:1px solid var(--border);
+    color:var(--text);font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;
+    transition:background .15s ease,border-color .15s ease,color .15s ease;
+  }
+  .add-btn:hover{background:var(--primary);border-color:var(--primary);color:#fff;}
+  .add-btn.added{background:var(--success);border-color:var(--success);color:#06281c;}
+
+  /* ---------- Promotions ---------- */
+  .promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .promo-card{
+    border-radius:var(--radius-lg);padding:30px 26px;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;
+    position:relative;overflow:hidden;border:1px solid var(--border);
+  }
+  .promo-card::before{
+    content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 2px,transparent 2px 18px);
+  }
+  .promo-card.v1{background:linear-gradient(150deg,#3B0F7A,#0D0B14 75%);}
+  .promo-card.v2{background:linear-gradient(150deg,#5B21B6,#171320 75%);}
+  .promo-card.v3{background:linear-gradient(150deg,#7C3AED,#1F1A2C 75%);}
+  .promo-card h3{font-family:var(--font-display);font-size:21px;font-weight:700;margin-bottom:8px;position:relative;max-width:230px;}
+  .promo-card p{font-size:13.5px;color:rgba(245,243,250,.8);margin-bottom:16px;max-width:230px;position:relative;}
+  .promo-card a{font-size:13.5px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:6px;position:relative;}
+  .promo-card a:hover{color:#fff;}
+
+  @media (max-width:900px){.promo-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Newsletter ---------- */
+  .newsletter{
+    background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  }
+  .newsletter .container{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:44px 24px;flex-wrap:wrap;}
+  .newsletter h3{font-family:var(--font-display);font-size:21px;font-weight:700;margin-bottom:4px;}
+  .newsletter p{color:var(--text-muted);font-size:14px;}
+  .newsletter-form{display:flex;gap:10px;flex-wrap:wrap;}
+  .newsletter-form input{
+    padding:12px 16px;border-radius:8px;border:1.5px solid var(--border);background:var(--surface-2);color:var(--text);
+    font-size:14px;min-width:240px;
+  }
+  .newsletter-form input::placeholder{color:var(--text-faint);}
+  .newsletter-msg{font-size:13.5px;color:var(--success);font-weight:600;display:none;}
+  .newsletter-msg.show{display:block;}
+
+  /* ---------- Footer ---------- */
+  footer.main-footer{padding:60px 0 0;background:#0B0910;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;}
+  .footer-col h4{font-size:13.5px;font-weight:700;margin-bottom:16px;color:var(--text);}
+  .footer-col ul li{margin-bottom:10px;}
+  .footer-col ul a{font-size:13.5px;color:var(--text-muted);}
+  .footer-col ul a:hover{color:var(--accent);}
+  .footer-col p.blurb{font-size:13px;color:var(--text-faint);max-width:260px;line-height:1.6;margin-top:10px;}
+  .pay-row,.social-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+  .pay-pill{font-family:var(--font-mono);font-size:11px;padding:5px 10px;border-radius:6px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-muted);}
+  .social-pill{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text-muted);}
+  .social-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+  .footer-bottom{
+    border-top:1px solid var(--border);padding:20px 0;display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--text-faint);
+  }
+  .footer-bottom a{color:var(--text-faint);}
+  .footer-bottom a:hover{color:var(--text-muted);}
+  .footer-bottom-links a{margin-left:14px;}
+
+  @media (max-width:900px){
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .footer-grid{grid-template-columns:1fr;}
+    .section{padding:54px 0;}
+    .hero{padding:50px 0 40px;}
+    .newsletter .container{flex-direction:column;align-items:flex-start;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .status-head .dot{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="utility-bar">Frete grátis para todo o Brasil em compras acima de <strong>R$299</strong> · Envio em até 24h</div>
+
+<header class="main-header">
+  <div class="container header-row">
+    <a href="index.html" class="logo" aria-label="CAMADA³ — página inicial">
+      <span class="logo-mark"><span></span><span></span><span></span></span>
+      <span class="logo-word">CAMADA<sup>3</sup></span>
+    </a>
+
+    <form class="search-form" role="search">
+      <input type="text" placeholder="Buscar impressoras, filamentos, peças...">
+      <button type="submit" aria-label="Buscar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </form>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#lancamentos">Impressoras</a>
+      <a href="#lancamentos">Filamentos</a>
+      <a href="#lancamentos">Peças &amp; Miniaturas</a>
+      <a href="#lancamentos">Acessórios</a>
+      <a href="#promocoes">Ofertas</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="login.html" class="icon-link">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span class="label">Entrar</span>
+      </a>
+      <a href="#" class="icon-link" id="cartLink">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1.4" fill="currentColor"/><circle cx="18" cy="21" r="1.4" fill="currentColor"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="container">
+      <div class="category-scroll">
+        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Impressoras FDM</a>
+        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg> Impressoras Resina</a>
+        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg> Filamento PLA</a>
+        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg> Filamento PETG</a>
+        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v6M9 9h6l-1 12h-4L9 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> Hotends &amp; Bicos</a>
+        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v10l-7 4-7-4V7l7-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> Miniaturas prontas</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Marketplace de impressão 3D</p>
+      <h1>Sua próxima peça começa numa <em>camada</em>.</h1>
+      <p class="lede">Impressoras, filamentos, resinas e peças prontas — tudo para você criar, camada por camada, com entrega para todo o Brasil.</p>
+      <div class="hero-ctas">
+        <a href="#lancamentos" class="btn btn-primary">Explorar loja</a>
+        <a href="#promocoes" class="btn btn-ghost">Ver promoções</a>
+      </div>
+    </div>
+
+    <div class="status-card">
+      <div class="status-head">
+        <span class="dot-label"><span class="dot"></span> Online</span>
+        <span class="machine">FORGE_X1 · #04</span>
+      </div>
+      <p class="status-part" id="statusPart">Miniatura Guardiã Élfica</p>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="status-meta">
+        <span>Camada <strong id="layerCount">0</strong>/<strong id="layerTotal">240</strong></span>
+        <span><strong id="progressPct">0</strong>%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="lancamentos">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recém-chegados</span>
+      <h2>Lançamentos</h2>
+      <p>O que há de mais novo em equipamentos e materiais para impressão 3D</p>
+    </div>
+
+    <div class="carousel-wrap">
+      <button class="carousel-arrow prev" id="prevBtn" aria-label="Anterior">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="carousel-track" id="carouselTrack">
+
+        <article class="product-card">
+          <div class="product-media">
+            <svg viewBox="0 0 100 100"><rect x="18" y="20" width="64" height="52" rx="6" fill="#241E33" stroke="#7C3AED" stroke-width="2"/><rect x="26" y="30" width="20" height="12" rx="2" fill="#C084FC"/><line x1="26" y1="50" x2="74" y2="50" stroke="#4C1D95" stroke-width="2"/><line x1="26" y1="58" x2="60" y2="58" stroke="#4C1D95" stroke-width="2"/><rect x="30" y="72" width="40" height="6" rx="2" fill="#5B21B6"/><line x1="50" y1="20" x2="50" y2="8" stroke="#8B5CF6" stroke-width="2"/><circle cx="50" cy="8" r="3" fill="#C084FC"/></svg>
+          </div>
+          <div class="product-body">
+            <span class="product-brand">Camada Forge</span>
+            <h3 class="product-name">Impressora 3D CAMADA Nova Lite FDM</h3>
+            <p class="price">R$2.199,00</p>
+            <p class="price-pix">R$2.089,05 <span class="tag">com Pix</span></p>
+            <p class="installment">4x de <strong>R$549,75</strong> sem juros</p>
+            <button class="add-btn">Adicionar</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <span class="media-badge">PLA · 1kg</span>
+            <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="#7C3AED" stroke-width="10"/><circle cx="50" cy="50" r="34" fill="none" stroke="#C084FC" stroke-width="2" stroke-dasharray="4 6"/><circle cx="50" cy="50" r="10" fill="#171320" stroke="#C084FC" stroke-width="2"/><rect x="42" y="80" width="16" height="8" rx="2" fill="#4C1D95"/></svg>
+          </div>
+          <div class="product-body">
+            <span class="product-brand">Linha Prisma</span>
+            <h3 class="product-name">Filamento PLA Roxo Ametista 1kg</h3>
+            <p class="price">R$99,90</p>
+            <p class="price-pix">R$94,90 <span class="tag">com Pix</span></p>
+            <p class="installment">4x de <strong>R$24,98</strong> sem juros</p>
+            <button class="add-btn">Adicionar</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <span class="media-badge">PETG · 1kg</span>
+            <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="#241E33" stroke-width="10"/><circle cx="50" cy="50" r="34" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4 6"/><circle cx="50" cy="50" r="10" fill="#171320" stroke="#8B5CF6" stroke-width="2"/><rect x="42" y="80" width="16" height="8" rx="2" fill="#2C2438"/></svg>
+          </div>
+          <div class="product-body">
+            <span class="product-brand">Linha Prisma</span>
+            <h3 class="product-name">Filamento PETG Preto Grafite 1kg</h3>
+            <p class="price">R$119,90</p>
+            <p class="price-pix">R$113,90 <span class="tag">com Pix</span></p>
+            <p class="installment">4x de <strong>R$29,98</strong> sem juros</p>
+            <button class="add-btn">Adicionar</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <svg viewBox="0 0 100 100"><rect x="38" y="16" width="24" height="18" rx="3" fill="#241E33" stroke="#C084FC" stroke-width="2"/><polygon points="40,34 60,34 50,56" fill="#7C3AED" stroke="#C084FC" stroke-width="1.5"/><line x1="50" y1="56" x2="50" y2="80" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="84" r="4" fill="#C084FC"/></svg>
+          </div>
+          <div class="product-body">
+            <span class="product-brand">Camada Forge</span>
+            <h3 class="product-name">Hotend Bico de Aço Endurecido 0.4mm</h3>
+            <p class="price">R$89,00</p>
+            <p class="price-pix">R$84,55 <span class="tag">com Pix</span></p>
+            <p class="installment">4x de <strong>R$22,25</strong> sem juros</p>
+            <button class="add-btn">Adicionar</button>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="carousel-arrow next" id="nextBtn" aria-label="Próximo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="promocoes">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Ofertas da semana</span>
+      <h2>Promoções</h2>
+      <p>Condições especiais em equipamentos, materiais e peças prontas</p>
+    </div>
+
+    <div class="promo-grid">
+      <div class="promo-card v1">
+        <h3>Filamentos selecionados — até 30% OFF</h3>
+        <p>PLA, PETG e ABS em cores exclusivas da linha Prisma.</p>
+        <a href="#lancamentos">Ver ofertas →</a>
+      </div>
+      <div class="promo-card v2">
+        <h3>Frete grátis em impressoras</h3>
+        <p>Compras acima de R$1.500 para todo o Brasil.</p>
+        <a href="#lancamentos">Conferir impressoras →</a>
+      </div>
+      <div class="promo-card v3">
+        <h3>Peças prontas a partir de R$19,90</h3>
+        <p>Miniaturas, suportes e decoração sob encomenda.</p>
+        <a href="#lancamentos">Explorar peças →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="newsletter">
+  <div class="container">
+    <div>
+      <h3>Receba lançamentos e cupons exclusivos</h3>
+      <p>Novidades de impressão 3D direto no seu e-mail, sem spam.</p>
+    </div>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="seuemail@exemplo.com" required>
+      <button type="submit" class="btn btn-primary btn-sm">Quero receber</button>
+    </form>
+    <span class="newsletter-msg" id="newsletterMsg">Inscrição confirmada! ✓</span>
+  </div>
+</div>
+
+<footer class="main-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <a href="index.html" class="logo" style="margin-bottom:14px;">
+        <span class="logo-mark"><span></span><span></span><span></span></span>
+        <span class="logo-word">CAMADA<sup>3</sup></span>
+      </a>
+      <p class="blurb">Marketplace brasileiro de impressão 3D: impressoras, filamentos, resinas, peças prontas e acessórios para makers, ateliês e estúdios.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Institucional</h4>
+      <ul>
+        <li><a href="#">Sobre a CAMADA³</a></li>
+        <li><a href="#">Trabalhe com a gente</a></li>
+        <li><a href="#">Sustentabilidade</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ajuda</h4>
+      <ul>
+        <li><a href="#">Central de ajuda</a></li>
+        <li><a href="#">Trocas e devoluções</a></li>
+        <li><a href="#">Rastrear pedido</a></li>
+        <li><a href="#">Fale conosco</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Pagamento</h4>
+      <div class="pay-row">
+        <span class="pay-pill">PIX</span>
+        <span class="pay-pill">BOLETO</span>
+        <span class="pay-pill">VISA</span>
+        <span class="pay-pill">MASTER</span>
+      </div>
+      <h4 style="margin-top:22px;">Redes</h4>
+      <div class="social-row">
+        <span class="social-pill"><span class="dot"></span>Instagram</span>
+        <span class="social-pill"><span class="dot"></span>YouTube</span>
+        <span class="social-pill"><span class="dot"></span>TikTok</span>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2019–<span id="year"></span> CAMADA³ Impressão 3D LTDA · CNPJ 00.000.000/0001-00</span>
+    <span class="footer-bottom-links"><a href="#">Privacidade</a><a href="#">Condições</a></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  const hamburger = document.getElementById('hamburger');
+  const mainNav = document.getElementById('mainNav');
+  hamburger.addEventListener('click', () => {
+    const open = mainNav.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(open));
+  });
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Search (demo only)
+  document.querySelector('.search-form').addEventListener('submit', (e) => e.preventDefault());
+
+  // Carousel controls
+  const track = document.getElementById('carouselTrack');
+  const step = () => track.querySelector('.product-card').offsetWidth + 22;
+  document.getElementById('prevBtn').addEventListener('click', () => track.scrollBy({left: -step(), behavior:'smooth'}));
+  document.getElementById('nextBtn').addEventListener('click', () => track.scrollBy({left: step(), behavior:'smooth'}));
+
+  // Add to cart
+  let cartCount = 0;
+  const cartBadge = document.getElementById('cartBadge');
+  document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      cartCount++;
+      cartBadge.textContent = cartCount;
+      const original = btn.textContent;
+      btn.textContent = 'Adicionado ✓';
+      btn.classList.add('added');
+      setTimeout(() => { btn.textContent = original; btn.classList.remove('added'); }, 1200);
+    });
+  });
+
+  // Newsletter (demo only)
+  const newsletterForm = document.getElementById('newsletterForm');
+  const newsletterMsg = document.getElementById('newsletterMsg');
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    newsletterForm.style.display = 'none';
+    newsletterMsg.classList.add('show');
+  });
+
+  // Live print status widget
+  const parts = ['Miniatura Guardiã Élfica','Suporte Articulado','Vaso Geométrico Facetado','Engrenagem Modular','Case Personalizado'];
+  let partIndex = 0;
+  let progress = 0;
+  let layerTotal = 240;
+  const statusPart = document.getElementById('statusPart');
+  const progressFill = document.getElementById('progressFill');
+  const progressPct = document.getElementById('progressPct');
+  const layerCount = document.getElementById('layerCount');
+  const layerTotalEl = document.getElementById('layerTotal');
+
+  function tick(){
+    progress += 2;
+    if (progress > 100){
+      progress = 0;
+      partIndex = (partIndex + 1) % parts.length;
+      layerTotal = 180 + Math.floor(Math.random() * 140);
+      statusPart.textContent = parts[partIndex];
+      layerTotalEl.textContent = layerTotal;
+    }
+    progressFill.style.width = progress + '%';
+    progressPct.textContent = progress;
+    layerCount.textContent = Math.round((progress/100) * layerTotal);
+  }
+  layerTotalEl.textContent = layerTotal;
+  setInterval(tick, 200);
+</script>
+</body>
+</html>
