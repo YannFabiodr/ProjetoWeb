@@ -48,3 +48,5 @@ document.getElementById('year').textContent = new Date().getFullYear();
     googleLabel.textContent = 'Conectando...';
     setTimeout(() => { window.location.href = 'index.html'; }, 850);
   });
+
+  
