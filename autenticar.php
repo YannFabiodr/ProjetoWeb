@@ -4,12 +4,20 @@ session_start();
 
 require_once "conexao.php";
 
-$email = $_POST["email"] ?? "";
-$senha = $_POST["senha"] ?? "";
+$email = $_POST["loginInput"];
+$senha = $_POST["senha"];
 
 if (empty($email) || empty($senha)) {
     die("Preencha todos os campos.");
 }
+
+if($_SERVER["REQUEST_METHOD"] === "POST" 
+    && isset($_POST["nome"]) 
+    && isset($_POST["email"])
+    && isset($_POST["senha"])
+    && $_POST["nome"] != ""
+    && $_POST["email"] != ""
+    && $_POST["senha"] != "" ){
 
 $sql = "SELECT * FROM usuarios WHERE email = :email";
 
@@ -34,6 +42,7 @@ if ($usuario && password_verify($senha, $usuario["senha"])) {
 
     echo "E-mail ou senha incorretos.";
 
+}
 }
 
 ?>

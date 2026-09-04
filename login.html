@@ -82,8 +82,8 @@
       <!-- Right column -->
       <div class="login-card-wrap">
         <div class="login-card">
-          <form id="loginForm" novalidate>
-            <label class="field-label" for="loginInput">E-mail ou telefone</label>
+          <form id="loginForm" method="post" action="autenticar.php>
+            <label class="field-label" for="loginInput">E-mail</label>
             <input class="field-input" type="text" id="loginInput" name="loginInput" placeholder="seuemail@exemplo.com" autocomplete="username">
             <span class="field-error" id="loginError">Digite um e-mail ou telefone válido para continuar.</span>
 
@@ -92,7 +92,7 @@
             </button>
           </form>
 
-          <button class="btn btn-link" id="createAccountBtn">Criar conta</button>
+          <button type="button" id="createAccountBtn" class="btn btn-link" onclick="window.location.href='cadastro.php'">Criar Conta</button>
 
           <div class="divider">ou</div>
 
