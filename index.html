@@ -12,261 +12,256 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <div class="utility-bar">Frete grátis para todo o Brasil em compras acima de <strong>R$299</strong> · Envio em até 24h</div>
-
 <header class="main-header">
-  <div class="container header-row">
-    <a href="index.html" class="logo" aria-label="CAMADA³ — página inicial">
-      <span class="logo-mark"><span></span><span></span><span></span></span>
-      <span class="logo-word">CAMADA<sup>3</sup></span>
-    </a>
+<div class="container header-row">
+<a href="index.html" class="logo" aria-label="CAMADA³ — página inicial">
+<span class="logo-mark"><span></span><span></span><span></span></span>
+<span class="logo-word">CAMADA<sup>3</sup></span>
+</a>
 
-    <form class="search-form" role="search">
-      <input type="text" placeholder="Buscar impressoras, filamentos, peças...">
-      <button type="submit" aria-label="Buscar">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      </button>
-    </form>
+<form class="search-form" role="search">
+<input type="text" placeholder="Buscar impressoras, filamentos, peças...">
+<button type="submit" aria-label="Buscar">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+</button>
+</form>
 
-    <nav class="main-nav" id="mainNav">
-      <a href="#lancamentos">Impressoras</a>
-      <a href="#lancamentos">Filamentos</a>
-      <a href="#lancamentos">Peças &amp; Miniaturas</a>
-      <a href="#lancamentos">Acessórios</a>
-      <a href="#promocoes">Ofertas</a>
-    </nav>
+<nav class="main-nav" id="mainNav">
+<a href="catalogo.html">Impressoras</a>
+<a href="catalogo.html">Filamentos</a>
+<a href="catalogo.html">Peças &amp; Miniaturas</a>
+<a href="catalogo.html">Acessórios</a>
+<a href="#promocoes">Ofertas</a>
+</nav>
 
-    <div class="header-actions">
-      <a href="login.html" class="icon-link">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-        <span class="label">Entrar</span>
-      </a>
-      <a href="#" class="icon-link" id="cartLink">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1.4" fill="currentColor"/><circle cx="18" cy="21" r="1.4" fill="currentColor"/></svg>
-        <span class="cart-badge" id="cartBadge">0</span>
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-  </div>
+<div class="header-actions">
+<a href="login.html" class="icon-link">
+<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+<span class="label">Entrar</span>
+</a>
+<a href="carrinho.html" class="icon-link" id="cartLink">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1.4" fill="currentColor"/><circle cx="18" cy="21" r="1.4" fill="currentColor"/></svg>
+<span class="cart-badge" id="cartBadge">0</span>
+</a>
+<button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+</button>
+</div>
+</div>
 
-  <div class="category-row">
-    <div class="container">
-      <div class="category-scroll">
-        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Impressoras FDM</a>
-        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg> Impressoras Resina</a>
-        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg> Filamento PLA</a>
-        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg> Filamento PETG</a>
-        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v6M9 9h6l-1 12h-4L9 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> Hotends &amp; Bicos</a>
-        <a class="pill" href="#lancamentos"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v10l-7 4-7-4V7l7-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> Miniaturas prontas</a>
-      </div>
-    </div>
-  </div>
+<div class="category-row">
+<div class="container">
+<div class="category-scroll">
+<a class="pill" href="catalogo.html"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Impressoras FDM</a>
+<a class="pill" href="catalogo.html"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg> Impressoras Resina</a>
+<a class="pill" href="catalogo.html"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg> Filamento PLA</a>
+<a class="pill" href="catalogo.html"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg> Filamento PETG</a>
+<a class="pill" href="catalogo.html"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v6M9 9h6l-1 12h-4L9 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> Hotends &amp; Bicos</a>
+<a class="pill" href="catalogo.html"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v10l-7 4-7-4V7l7-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> Miniaturas prontas</a>
+</div>
+</div>
+</div>
 </header>
 
 <section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <p class="eyebrow">Marketplace de impressão 3D</p>
-      <h1>Sua próxima peça começa numa <em>camada</em>.</h1>
-      <p class="lede">Impressoras, filamentos, resinas e peças prontas — tudo para você criar, camada por camada, com entrega para todo o Brasil.</p>
-      <div class="hero-ctas">
-        <a href="#lancamentos" class="btn btn-primary">Explorar loja</a>
-        <a href="#promocoes" class="btn btn-ghost">Ver promoções</a>
-      </div>
-    </div>
-
-    <div class="status-card">
-      <div class="status-head">
-        <span class="dot-label"><span class="dot"></span> Online</span>
-        <span class="machine">FORGE_X1 · #04</span>
-      </div>
-      <p class="status-part" id="statusPart">Miniatura Guardiã Élfica</p>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="status-meta">
-        <span>Camada <strong id="layerCount">0</strong>/<strong id="layerTotal">240</strong></span>
-        <span><strong id="progressPct">0</strong>%</span>
-      </div>
-    </div>
-  </div>
+<div class="container hero-grid">
+<div>
+<p class="eyebrow">Marketplace de impressão 3D</p>
+<h1>Sua próxima peça começa numa <em>camada</em>.</h1>
+<p class="lede">Impressoras, filamentos, resinas e peças prontas — tudo para você criar, camada por camada, com entrega para todo o Brasil.</p>
+<div class="hero-ctas">
+<a href="catalogo.html" class="btn btn-primary">Explorar loja</a>
+<a href="#promocoes" class="btn btn-ghost">Ver promoções</a>
+</div>
+</div>
+<div class="status-card">
+<div class="status-head">
+<span class="dot-label"><span class="dot"></span> Online</span>
+<span class="machine">FORGE_X1 · #04</span>
+</div>
+<p class="status-part" id="statusPart">Miniatura Guardiã Élfica</p>
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+<div class="status-meta">
+<span>Camada <strong id="layerCount">0</strong>/<strong id="layerTotal">240</strong></span>
+<span><strong id="progressPct">0</strong>%</span>
+</div>
+</div>
+</div>
 </section>
 
 <section class="section" id="lancamentos">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Recém-chegados</span>
-      <h2>Lançamentos</h2>
-      <p>O que há de mais novo em equipamentos e materiais para impressão 3D</p>
-    </div>
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Recém-chegados</span>
+<h2>Lançamentos</h2>
+<p>O que há de mais novo em equipamentos e materiais para impressão 3D</p>
+<a href="catalogo.html" class="section-head-link">Ver catálogo completo →</a>
+</div>
+<div class="carousel-wrap">
+<button class="carousel-arrow prev" id="prevBtn" aria-label="Anterior">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<div class="carousel-track" id="carouselTrack">
+<article class="product-card">
+<div class="product-media">
+<svg viewBox="0 0 100 100"><rect x="18" y="20" width="64" height="52" rx="6" fill="#241E33" stroke="#7C3AED" stroke-width="2"/><rect x="26" y="30" width="20" height="12" rx="2" fill="#C084FC"/><line x1="26" y1="50" x2="74" y2="50" stroke="#4C1D95" stroke-width="2"/><line x1="26" y1="58" x2="60" y2="58" stroke="#4C1D95" stroke-width="2"/><rect x="30" y="72" width="40" height="6" rx="2" fill="#5B21B6"/><line x1="50" y1="20" x2="50" y2="8" stroke="#8B5CF6" stroke-width="2"/><circle cx="50" cy="8" r="3" fill="#C084FC"/></svg>
+</div>
+<div class="product-body">
+<span class="product-brand">Camada Forge</span>
+<h3 class="product-name">Impressora 3D CAMADA Nova Lite FDM</h3>
+<p class="price">R$2.199,00</p>
+<p class="price-pix">R$2.089,05 <span class="tag">com Pix</span></p>
+<p class="installment">4x de <strong>R$549,75</strong> sem juros</p>
+<a href="produto.html" class="product-link">Ver produto</a>
+<button class="add-btn">Adicionar</button>
+</div>
+</article>
 
-    <div class="carousel-wrap">
-      <button class="carousel-arrow prev" id="prevBtn" aria-label="Anterior">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+<article class="product-card">
+<div class="product-media">
+<span class="media-badge">PLA · 1kg</span>
+<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="#7C3AED" stroke-width="10"/><circle cx="50" cy="50" r="34" fill="none" stroke="#C084FC" stroke-width="2" stroke-dasharray="4 6"/><circle cx="50" cy="50" r="10" fill="#171320" stroke="#C084FC" stroke-width="2"/><rect x="42" y="80" width="16" height="8" rx="2" fill="#4C1D95"/></svg>
+</div>
+<div class="product-body">
+<span class="product-brand">Linha Prisma</span>
+<h3 class="product-name">Filamento PLA Roxo Ametista 1kg</h3>
+<p class="price">R$99,90</p>
+<p class="price-pix">R$94,90 <span class="tag">com Pix</span></p>
+<p class="installment">4x de <strong>R$24,98</strong> sem juros</p>
+<a href="produto.html" class="product-link">Ver produto</a>
+<button class="add-btn">Adicionar</button>
+</div>
+</article>
 
-      <div class="carousel-track" id="carouselTrack">
+<article class="product-card">
+<div class="product-media">
+<span class="media-badge">PETG · 1kg</span>
+<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="#241E33" stroke-width="10"/><circle cx="50" cy="50" r="34" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4 6"/><circle cx="50" cy="50" r="10" fill="#171320" stroke="#8B5CF6" stroke-width="2"/><rect x="42" y="80" width="16" height="8" rx="2" fill="#2C2438"/></svg>
+</div>
+<div class="product-body">
+<span class="product-brand">Linha Prisma</span>
+<h3 class="product-name">Filamento PETG Preto Grafite 1kg</h3>
+<p class="price">R$119,90</p>
+<p class="price-pix">R$113,90 <span class="tag">com Pix</span></p>
+<p class="installment">4x de <strong>R$29,98</strong> sem juros</p>
+<a href="produto.html" class="product-link">Ver produto</a>
+<button class="add-btn">Adicionar</button>
+</div>
+</article>
 
-        <article class="product-card">
-          <div class="product-media">
-            <svg viewBox="0 0 100 100"><rect x="18" y="20" width="64" height="52" rx="6" fill="#241E33" stroke="#7C3AED" stroke-width="2"/><rect x="26" y="30" width="20" height="12" rx="2" fill="#C084FC"/><line x1="26" y1="50" x2="74" y2="50" stroke="#4C1D95" stroke-width="2"/><line x1="26" y1="58" x2="60" y2="58" stroke="#4C1D95" stroke-width="2"/><rect x="30" y="72" width="40" height="6" rx="2" fill="#5B21B6"/><line x1="50" y1="20" x2="50" y2="8" stroke="#8B5CF6" stroke-width="2"/><circle cx="50" cy="8" r="3" fill="#C084FC"/></svg>
-          </div>
-          <div class="product-body">
-            <span class="product-brand">Camada Forge</span>
-            <h3 class="product-name">Impressora 3D CAMADA Nova Lite FDM</h3>
-            <p class="price">R$2.199,00</p>
-            <p class="price-pix">R$2.089,05 <span class="tag">com Pix</span></p>
-            <p class="installment">4x de <strong>R$549,75</strong> sem juros</p>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-media">
-            <span class="media-badge">PLA · 1kg</span>
-            <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="#7C3AED" stroke-width="10"/><circle cx="50" cy="50" r="34" fill="none" stroke="#C084FC" stroke-width="2" stroke-dasharray="4 6"/><circle cx="50" cy="50" r="10" fill="#171320" stroke="#C084FC" stroke-width="2"/><rect x="42" y="80" width="16" height="8" rx="2" fill="#4C1D95"/></svg>
-          </div>
-          <div class="product-body">
-            <span class="product-brand">Linha Prisma</span>
-            <h3 class="product-name">Filamento PLA Roxo Ametista 1kg</h3>
-            <p class="price">R$99,90</p>
-            <p class="price-pix">R$94,90 <span class="tag">com Pix</span></p>
-            <p class="installment">4x de <strong>R$24,98</strong> sem juros</p>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-media">
-            <span class="media-badge">PETG · 1kg</span>
-            <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="#241E33" stroke-width="10"/><circle cx="50" cy="50" r="34" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4 6"/><circle cx="50" cy="50" r="10" fill="#171320" stroke="#8B5CF6" stroke-width="2"/><rect x="42" y="80" width="16" height="8" rx="2" fill="#2C2438"/></svg>
-          </div>
-          <div class="product-body">
-            <span class="product-brand">Linha Prisma</span>
-            <h3 class="product-name">Filamento PETG Preto Grafite 1kg</h3>
-            <p class="price">R$119,90</p>
-            <p class="price-pix">R$113,90 <span class="tag">com Pix</span></p>
-            <p class="installment">4x de <strong>R$29,98</strong> sem juros</p>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-media">
-            <svg viewBox="0 0 100 100"><rect x="38" y="16" width="24" height="18" rx="3" fill="#241E33" stroke="#C084FC" stroke-width="2"/><polygon points="40,34 60,34 50,56" fill="#7C3AED" stroke="#C084FC" stroke-width="1.5"/><line x1="50" y1="56" x2="50" y2="80" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="84" r="4" fill="#C084FC"/></svg>
-          </div>
-          <div class="product-body">
-            <span class="product-brand">Camada Forge</span>
-            <h3 class="product-name">Hotend Bico de Aço Endurecido 0.4mm</h3>
-            <p class="price">R$89,00</p>
-            <p class="price-pix">R$84,55 <span class="tag">com Pix</span></p>
-            <p class="installment">4x de <strong>R$22,25</strong> sem juros</p>
-            <button class="add-btn">Adicionar</button>
-          </div>
-        </article>
-
-      </div>
-
-      <button class="carousel-arrow next" id="nextBtn" aria-label="Próximo">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-  </div>
+<article class="product-card">
+<div class="product-media">
+<svg viewBox="0 0 100 100"><rect x="38" y="16" width="24" height="18" rx="3" fill="#241E33" stroke="#C084FC" stroke-width="2"/><polygon points="40,34 60,34 50,56" fill="#7C3AED" stroke="#C084FC" stroke-width="1.5"/><line x1="50" y1="56" x2="50" y2="80" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="84" r="4" fill="#C084FC"/></svg>
+</div>
+<div class="product-body">
+<span class="product-brand">Camada Forge</span>
+<h3 class="product-name">Hotend Bico de Aço Endurecido 0.4mm</h3>
+<p class="price">R$89,00</p>
+<p class="price-pix">R$84,55 <span class="tag">com Pix</span></p>
+<p class="installment">4x de <strong>R$22,25</strong> sem juros</p>
+<a href="produto.html" class="product-link">Ver produto</a>
+<button class="add-btn">Adicionar</button>
+</div>
+</article>
+</div>
+<button class="carousel-arrow next" id="nextBtn" aria-label="Próximo">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+</div>
+</div>
 </section>
 
 <section class="section" id="promocoes">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Ofertas da semana</span>
-      <h2>Promoções</h2>
-      <p>Condições especiais em equipamentos, materiais e peças prontas</p>
-    </div>
-
-    <div class="promo-grid">
-      <div class="promo-card v1">
-        <h3>Filamentos selecionados — até 30% OFF</h3>
-        <p>PLA, PETG e ABS em cores exclusivas da linha Prisma.</p>
-        <a href="#lancamentos">Ver ofertas →</a>
-      </div>
-      <div class="promo-card v2">
-        <h3>Frete grátis em impressoras</h3>
-        <p>Compras acima de R$1.500 para todo o Brasil.</p>
-        <a href="#lancamentos">Conferir impressoras →</a>
-      </div>
-      <div class="promo-card v3">
-        <h3>Peças prontas a partir de R$19,90</h3>
-        <p>Miniaturas, suportes e decoração sob encomenda.</p>
-        <a href="#lancamentos">Explorar peças →</a>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Ofertas da semana</span>
+<h2>Promoções</h2>
+<p>Condições especiais em equipamentos, materiais e peças prontas</p>
+</div>
+<div class="promo-grid">
+<div class="promo-card v1">
+<h3>Filamentos selecionados — até 30% OFF</h3>
+<p>PLA, PETG e ABS em cores exclusivas da linha Prisma.</p>
+<a href="catalogo.html">Ver ofertas →</a>
+</div>
+<div class="promo-card v2">
+<h3>Frete grátis em impressoras</h3>
+<p>Compras acima de R$1.500 para todo o Brasil.</p>
+<a href="catalogo.html">Conferir impressoras →</a>
+</div>
+<div class="promo-card v3">
+<h3>Peças prontas a partir de R$19,90</h3>
+<p>Miniaturas, suportes e decoração sob encomenda.</p>
+<a href="catalogo.html">Explorar peças →</a>
+</div>
+</div>
+</div>
 </section>
 
 <div class="newsletter">
-  <div class="container">
-    <div>
-      <h3>Receba lançamentos e cupons exclusivos</h3>
-      <p>Novidades de impressão 3D direto no seu e-mail, sem spam.</p>
-    </div>
-    <form class="newsletter-form" id="newsletterForm">
-      <input type="email" placeholder="seuemail@exemplo.com" required>
-      <button type="submit" class="btn btn-primary btn-sm">Quero receber</button>
-    </form>
-    <span class="newsletter-msg" id="newsletterMsg">Inscrição confirmada! ✓</span>
-  </div>
+<div class="container">
+<div>
+<h3>Receba lançamentos e cupons exclusivos</h3>
+<p>Novidades de impressão 3D direto no seu e-mail, sem spam.</p>
+</div>
+<form class="newsletter-form" id="newsletterForm">
+<input type="email" placeholder="seuemail@exemplo.com" required>
+<button type="submit" class="btn btn-primary btn-sm">Quero receber</button>
+</form>
+<span class="newsletter-msg" id="newsletterMsg">Inscrição confirmada! ✓</span>
+</div>
 </div>
 
 <footer class="main-footer">
-  <div class="container footer-grid">
-    <div class="footer-col">
-      <a href="index.html" class="logo" style="margin-bottom:14px;">
-        <span class="logo-mark"><span></span><span></span><span></span></span>
-        <span class="logo-word">CAMADA<sup>3</sup></span>
-      </a>
-      <p class="blurb">Marketplace brasileiro de impressão 3D: impressoras, filamentos, resinas, peças prontas e acessórios para makers, ateliês e estúdios.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Institucional</h4>
-      <ul>
-        <li><a href="#">Sobre a CAMADA³</a></li>
-        <li><a href="#">Trabalhe com a gente</a></li>
-        <li><a href="#">Sustentabilidade</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Ajuda</h4>
-      <ul>
-        <li><a href="#">Central de ajuda</a></li>
-        <li><a href="#">Trocas e devoluções</a></li>
-        <li><a href="#">Rastrear pedido</a></li>
-        <li><a href="#">Fale conosco</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Pagamento</h4>
-      <div class="pay-row">
-        <span class="pay-pill">PIX</span>
-        <span class="pay-pill">BOLETO</span>
-        <span class="pay-pill">VISA</span>
-        <span class="pay-pill">MASTER</span>
-      </div>
-      <h4 style="margin-top:22px;">Redes</h4>
-      <div class="social-row">
-        <span class="social-pill"><span class="dot"></span>Instagram</span>
-        <span class="social-pill"><span class="dot"></span>YouTube</span>
-        <span class="social-pill"><span class="dot"></span>TikTok</span>
-      </div>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2019–<span id="year"></span> CAMADA³ Impressão 3D LTDA · CNPJ 00.000.000/0001-00</span>
-    <span class="footer-bottom-links"><a href="#">Privacidade</a><a href="#">Condições</a></span>
-  </div>
+<div class="container footer-grid">
+<div class="footer-col">
+<a href="index.html" class="logo" style="margin-bottom:14px;">
+<span class="logo-mark"><span></span><span></span><span></span></span>
+<span class="logo-word">CAMADA<sup>3</sup></span>
+</a>
+<p class="blurb">Marketplace brasileiro de impressão 3D: impressoras, filamentos, resinas, peças prontas e acessórios para makers, ateliês e estúdios.</p>
+</div>
+<div class="footer-col">
+<h4>Institucional</h4>
+<ul>
+<li><a href="#">Sobre a CAMADA³</a></li>
+<li><a href="#">Trabalhe com a gente</a></li>
+<li><a href="#">Sustentabilidade</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Ajuda</h4>
+<ul>
+<li><a href="#">Central de ajuda</a></li>
+<li><a href="#">Trocas e devoluções</a></li>
+<li><a href="pedido.html">Rastrear pedido</a></li>
+<li><a href="#">Fale conosco</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Pagamento</h4>
+<div class="pay-row">
+<span class="pay-pill">PIX</span>
+<span class="pay-pill">BOLETO</span>
+<span class="pay-pill">VISA</span>
+<span class="pay-pill">MASTER</span>
+</div>
+<h4 style="margin-top:22px;">Redes</h4>
+<div class="social-row">
+<span class="social-pill"><span class="dot"></span>Instagram</span>
+<span class="social-pill"><span class="dot"></span>YouTube</span>
+<span class="social-pill"><span class="dot"></span>TikTok</span>
+</div>
+</div>
+</div>
+<div class="container footer-bottom">
+<span>© 2019–<span id="year"></span> CAMADA³ Impressão 3D LTDA · CNPJ 00.000.000/0001-00</span>
+<span class="footer-bottom-links"><a href="#">Privacidade</a><a href="#">Condições</a></span>
+</div>
 </footer>
 
 <script>
-  
 </script>
 </body>
 </html>
