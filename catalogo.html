@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo · CAMADA³ Impressão 3D</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D0B14'/%3E%3Crect x='7' y='19' width='18' height='4' rx='2' fill='%234C1D95'/%3E%3Crect x='9' y='13' width='14' height='4' rx='2' fill='%238B5CF6'/%3E%3Crect x='11' y='7' width='10' height='4' rx='2' fill='%23C084FC'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="index.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="main-header">
+<div class="container header-row">
+<a href="index.html" class="logo" aria-label="CAMADA³ — página inicial">
+<span class="logo-mark"><span></span><span></span><span></span></span>
+<span class="logo-word">CAMADA<sup>3</sup></span>
+</a>
+<nav class="main-nav" id="mainNav">
+<a href="catalogo.html">Catálogo</a>
+<a href="carrinho.html">Carrinho</a>
+<a href="pedido.html">Meus pedidos</a>
+</nav>
+<div class="header-actions">
+<a href="perfil.html" class="icon-link">
+<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+<span class="label">Perfil</span>
+</a>
+<a href="carrinho.html" class="icon-link" id="cartLink">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1.4" fill="currentColor"/><circle cx="18" cy="21" r="1.4" fill="currentColor"/></svg>
+<span class="cart-badge" id="cartBadge">0</span>
+</a>
+</div>
+</div>
+</header>
+
+<main>
+<div class="container">
+
+<section class="section" id="catalogo">
+<div class="section-head">
+<span class="eyebrow">Loja completa</span>
+<h1>Catálogo</h1>
+<p>Impressoras, filamentos e peças prontas para o seu próximo projeto</p>
+</div>
+
+<form class="catalog-filters" role="search">
+<label for="filtroCategoria">Categoria</label>
+<select id="filtroCategoria" name="filtroCategoria">
+<option value="">Todas</option>
+<option value="impressoras">Impressoras</option>
+<option value="filamentos">Filamentos</option>
+<option value="pecas">Peças &amp; Miniaturas</option>
+<option value="acessorios">Acessórios</option>
+</select>
+
+<label for="filtroBusca">Buscar</label>
+<input type="text" id="filtroBusca" name="filtroBusca" placeholder="Buscar no catálogo...">
+
+<button type="submit" class="btn btn-primary btn-sm">Filtrar</button>
+</form>
+
+<section class="product-grid" aria-label="Produtos">
+
+<article class="product-card">
+<img src="" alt="Impressora 3D CAMADA Nova Lite FDM">
+<h2 class="product-name">Impressora 3D CAMADA Nova Lite FDM</h2>
+<p class="product-desc">Impressora FDM de mesa, ideal para makers iniciantes.</p>
+<p class="price">R$ 2.199,00</p>
+<a href="produto.html" class="product-link">Ver produto</a>
+<button type="button" class="add-btn">Adicionar ao carrinho</button>
+</article>
+
+<article class="product-card">
+<img src="" alt="Impressora 3D CAMADA Forge Resina">
+<h2 class="product-name">Impressora 3D CAMADA Forge Resina</h2>
+<p class="product-desc">Impressora de resina para peças com alto nível de detalhe.</p>
+<p class="price">R$ 3.450,00</p>
+<a href="produto.html" class="product-link">Ver produto</a>
+<button type="button" class="add-btn">Adicionar ao carrinho</button>
+</article>
+
+<article class="product-card">
+<img src="" alt="Filamento PLA Roxo Ametista 1kg">
+<h2 class="product-name">Filamento PLA Roxo Ametista 1kg</h2>
+<p class="product-desc">PLA da linha Prisma, cor exclusiva.</p>
+<p class="price">R$ 99,90</p>
+<a href="produto.html" class="product-link">Ver produto</a>
+<button type="button" class="add-btn">Adicionar ao carrinho</button>
+</article>
+
+<article class="product-card">
+<img src="" alt="Filamento PETG Preto Grafite 1kg">
+<h2 class="product-name">Filamento PETG Preto Grafite 1kg</h2>
+<p class="product-desc">PETG resistente para peças funcionais.</p>
+<p class="price">R$ 119,90</p>
+<a href="produto.html" class="product-link">Ver produto</a>
+<button type="button" class="add-btn">Adicionar ao carrinho</button>
+</article>
+
+<article class="product-card">
+<img src="" alt="Hotend Bico de Aço Endurecido 0.4mm">
+<h2 class="product-name">Hotend Bico de Aço Endurecido 0.4mm</h2>
+<p class="product-desc">Bico de alta durabilidade para filamentos abrasivos.</p>
+<p class="price">R$ 89,00</p>
+<a href="produto.html" class="product-link">Ver produto</a>
+<button type="button" class="add-btn">Adicionar ao carrinho</button>
+</article>
+
+<article class="product-card">
+<img src="" alt="Miniatura Guardiã Élfica pronta">
+<h2 class="product-name">Miniatura Guardiã Élfica</h2>
+<p class="product-desc">Peça pronta impressa em resina, pintada à mão.</p>
+<p class="price">R$ 39,90</p>
+<a href="produto.html" class="product-link">Ver produto</a>
+<button type="button" class="add-btn">Adicionar ao carrinho</button>
+</article>
+
+</section>
+
+<p class="catalog-custom-note">Procurando uma peça sob medida? <a href="personalizado.html">Fale com um vendedor sobre uma encomenda personalizada</a>.</p>
+
+</section>
+
+</div>
+</main>
+
+<footer class="main-footer">
+<div class="container footer-bottom">
+<span>© 2019–<span id="year"></span> CAMADA³ Impressão 3D LTDA · CNPJ 00.000.000/0001-00</span>
+</div>
+</footer>
+</body>
+</html>
