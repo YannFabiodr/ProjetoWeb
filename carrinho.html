@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrinho · CAMADA³ Impressão 3D</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D0B14'/%3E%3Crect x='7' y='19' width='18' height='4' rx='2' fill='%234C1D95'/%3E%3Crect x='9' y='13' width='14' height='4' rx='2' fill='%238B5CF6'/%3E%3Crect x='11' y='7' width='10' height='4' rx='2' fill='%23C084FC'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="index.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="main-header">
+<div class="container header-row">
+<a href="index.html" class="logo" aria-label="CAMADA³ — página inicial">
+<span class="logo-mark"><span></span><span></span><span></span></span>
+<span class="logo-word">CAMADA<sup>3</sup></span>
+</a>
+<nav class="main-nav" id="mainNav">
+<a href="catalogo.html">Catálogo</a>
+<a href="carrinho.html">Carrinho</a>
+<a href="pedido.html">Meus pedidos</a>
+</nav>
+<div class="header-actions">
+<a href="perfil.html" class="icon-link">
+<span class="label">Perfil</span>
+</a>
+<a href="carrinho.html" class="icon-link" id="cartLink">
+<span class="cart-badge" id="cartBadge">0</span>
+</a>
+</div>
+</div>
+</header>
+
+<main>
+<div class="container">
+
+<section class="cart-section">
+<div class="section-head">
+<span class="eyebrow">Sua sacola</span>
+<h1>Carrinho</h1>
+</div>
+
+<section class="cart-items" aria-label="Itens do carrinho">
+
+<article class="cart-item">
+<img src="" alt="Impressora 3D CAMADA Nova Lite FDM">
+<h2 class="product-name">Impressora 3D CAMADA Nova Lite FDM</h2>
+
+<label for="qtdItem1">Quantidade</label>
+<input type="number" id="qtdItem1" name="qtdItem1" value="1" min="1">
+
+<p class="price">R$ 2.199,00</p>
+<p class="subtotal">Subtotal: <strong>R$ 2.199,00</strong></p>
+
+<button type="button" class="btn btn-ghost btn-sm remove-btn">Remover</button>
+</article>
+
+<article class="cart-item">
+<img src="" alt="Filamento PLA Roxo Ametista 1kg">
+<h2 class="product-name">Filamento PLA Roxo Ametista 1kg</h2>
+
+<label for="qtdItem2">Quantidade</label>
+<input type="number" id="qtdItem2" name="qtdItem2" value="2" min="1">
+
+<p class="price">R$ 99,90</p>
+<p class="subtotal">Subtotal: <strong>R$ 199,80</strong></p>
+
+<button type="button" class="btn btn-ghost btn-sm remove-btn">Remover</button>
+</article>
+
+</section>
+
+<section class="cart-address" aria-labelledby="cartAddressTitulo">
+<h2 id="cartAddressTitulo">Endereço de entrega</h2>
+<p>Rua Anísio, 1023 — Jardim Borges, SP</p>
+<a href="endereco.html" class="btn btn-ghost btn-sm">Trocar endereço</a>
+</section>
+
+<section class="cart-summary" aria-labelledby="resumoTitulo">
+<h2 id="resumoTitulo">Resumo</h2>
+<dl class="summary-list">
+<dt>Subtotal</dt>
+<dd>R$ 2.398,80</dd>
+
+<dt>Frete</dt>
+<dd>R$ 29,90</dd>
+
+<dt>Total</dt>
+<dd><strong>R$ 2.428,70</strong></dd>
+</dl>
+
+<a href="finalizar-pedido.html" class="btn btn-primary" id="finalizarBtn">Finalizar pedido</a>
+</section>
+
+</section>
+
+</div>
+</main>
+
+<footer class="main-footer">
+<div class="container footer-bottom">
+<span>© 2019–<span id="year"></span> CAMADA³ Impressão 3D LTDA · CNPJ 00.000.000/0001-00</span>
+</div>
+</footer>
+</body>
+</html>
