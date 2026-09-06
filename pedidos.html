@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedidos · Painel administrativo · CAMADA³</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D0B14'/%3E%3Crect x='7' y='19' width='18' height='4' rx='2' fill='%234C1D95'/%3E%3Crect x='9' y='13' width='14' height='4' rx='2' fill='%238B5CF6'/%3E%3Crect x='11' y='7' width='10' height='4' rx='2' fill='%23C084FC'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="index.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="admin-header">
+<div class="container admin-header-row">
+<a href="admin.html" class="logo" aria-label="CAMADA³ — painel administrativo">
+<span class="logo-mark"><span></span><span></span><span></span></span>
+<span class="logo-word">CAMADA<sup>3</sup></span>
+</a>
+<nav class="admin-nav" id="adminNav">
+<a href="admin.html">Painel</a>
+<a href="produtos.html">Produtos</a>
+<a href="clientes.html">Clientes</a>
+<a href="vendedores.html">Vendedores</a>
+<a href="pedidos.html">Pedidos</a>
+<a href="enderecos.html">Endereços</a>
+<a href="relatorios.html">Relatórios</a>
+</nav>
+<a href="login.html" class="btn btn-ghost btn-sm" id="adminLogoutLink">Sair</a>
+</div>
+</header>
+
+<main>
+<div class="container">
+
+<section class="admin-table-section">
+<div class="section-head">
+<span class="eyebrow">Painel &gt; Pedidos</span>
+<h1>Pedidos</h1>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Cliente</th>
+<th>Data</th>
+<th>Valor</th>
+<th>Situação</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>jose.amaro</td>
+<td>04/09/2026</td>
+<td>R$ 2.428,70</td>
+<td>Entregue</td>
+<td>
+<a href="#" class="btn btn-ghost btn-sm">Visualizar</a>
+<a href="#" class="btn btn-ghost btn-sm">Alterar status</a>
+</td>
+</tr>
+<tr>
+<td>002</td>
+<td>jose.amaro</td>
+<td>02/09/2026</td>
+<td>R$ 149,90</td>
+<td>Em produção</td>
+<td>
+<a href="#" class="btn btn-ghost btn-sm">Visualizar</a>
+<a href="#" class="btn btn-ghost btn-sm">Alterar status</a>
+</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+
+</div>
+</main>
+
+<footer class="main-footer">
+<div class="container footer-bottom">
+<span>© 2019–<span id="year"></span> CAMADA³ Impressão 3D LTDA · CNPJ 00.000.000/0001-00</span>
+</div>
+</footer>
+</body>
+</html>
